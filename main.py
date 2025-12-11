@@ -68,6 +68,30 @@ def db_connect():
 
 
 # ============================
+# Registrar logs de inicio de sesión
+# ============================
+def log_login(user_id, request: Request, success: bool):
+    try:
+        conn = db_connect()
+        cur = conn.cursor()
+
+        ip = request.client.host
+        user_agent = request.headers.get("User-Agent")
+
+        cur.execute("""
+            INSERT INTO login_logs (user_id, ip, user_agent, exito, fecha)
+            VALUES (%s, %s, %s, %s, NOW())
+        """, (user_id, ip, user_agent, success))
+
+        conn.commit()
+        cur.close()
+        conn.close()
+
+    except Exception as e:
+        print("⚠ Error registrando login:", e)
+
+
+# ============================
 # Página principal
 # ============================
 @app.get("/")
@@ -76,37 +100,62 @@ def mostrar_landing():
 
 
 # ============================
-# LOGIN
+# LOGIN con control de sesiones
 # ============================
 @app.post("/auth/login")
-def login(data: LoginData):
+def login(data: LoginData, request: Request):
     conn = db_connect()
     cur = conn.cursor()
 
+    # Buscar usuario
     cur.execute("""
         SELECT id, hash_contraseña 
         FROM users 
         WHERE correo = %s AND activo = TRUE
     """, (data.correo,))
-
     user = cur.fetchone()
+
     if not user:
+        log_login(None, request, False)
         raise HTTPException(status_code=400, detail="Usuario o contraseña incorrectos")
 
     user_id, hash_contraseña = user
 
+    # Validar contraseña
     if not pwd_context.verify(data.contraseña, hash_contraseña):
+        log_login(user_id, request, False)
         raise HTTPException(status_code=400, detail="Usuario o contraseña incorrectos")
 
-    # Crear token JWT
+    # Token con expiración
+    expiration = datetime.utcnow() + timedelta(hours=8)
     token = jwt.encode(
-        {
-            "user_id": user_id,
-            "exp": datetime.utcnow() + timedelta(hours=8)
-        },
+        {"user_id": user_id, "exp": expiration},
         SECRET_KEY,
         algorithm="HS256"
     )
+
+    # -------------------------------
+    # Limitar sesiones activas a 2
+    # -------------------------------
+    cur.execute("""
+        SELECT id FROM auth_tokens
+        WHERE user_id = %s
+        ORDER BY creado ASC
+    """, (user_id,))
+    sessions = cur.fetchall()
+
+    if len(sessions) >= 2:
+        oldest_id = sessions[0][0]
+        cur.execute("DELETE FROM auth_tokens WHERE id = %s", (oldest_id,))
+
+    # Registrar sesión nueva
+    cur.execute("""
+        INSERT INTO auth_tokens (user_id, token, expira, creado)
+        VALUES (%s, %s, %s, NOW())
+    """, (user_id, token, expiration))
+    conn.commit()
+
+    log_login(user_id, request, True)
 
     cur.close()
     conn.close()
@@ -115,7 +164,7 @@ def login(data: LoginData):
 
 
 # ============================
-# VALIDAR TOKEN (NUEVO)
+# VALIDAR TOKEN contra BD
 # ============================
 @app.get("/auth/validate")
 def validar_token(request: Request):
@@ -126,12 +175,55 @@ def validar_token(request: Request):
 
     token = auth_header.replace("Bearer ", "")
 
+    # Validar JWT
     try:
-        jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
-        return {"status": "ok"}
-
+        payload = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
     except jwt.ExpiredSignatureError:
         raise HTTPException(status_code=401, detail="Token expirado")
-
     except jwt.InvalidTokenError:
         raise HTTPException(status_code=401, detail="Token inválido")
+
+    user_id = payload["user_id"]
+
+    # Validar token activo en BD
+    conn = db_connect()
+    cur = conn.cursor()
+
+    cur.execute("""
+        SELECT 1 FROM auth_tokens
+        WHERE user_id = %s AND token = %s
+    """, (user_id, token))
+
+    active = cur.fetchone()
+
+    cur.close()
+    conn.close()
+
+    if not active:
+        raise HTTPException(status_code=401, detail="Sesión invalidada (otro dispositivo inició sesión)")
+
+    return {"status": "ok"}
+
+
+# ============================
+# LOGOUT (opcional)
+# ============================
+@app.post("/auth/logout")
+def logout(request: Request):
+    auth_header = request.headers.get("Authorization")
+
+    if not auth_header:
+        raise HTTPException(status_code=401, detail="Token no enviado")
+
+    token = auth_header.replace("Bearer ", "")
+
+    conn = db_connect()
+    cur = conn.cursor()
+
+    cur.execute("DELETE FROM auth_tokens WHERE token = %s", (token,))
+    conn.commit()
+
+    cur.close()
+    conn.close()
+
+    return {"status": "cerrado"}
