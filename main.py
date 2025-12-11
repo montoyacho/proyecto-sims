@@ -90,15 +90,6 @@ def log_login(user_id, request: Request, success: bool):
     except Exception as e:
         print("⚠ Error registrando login:", e)
 
-
-# ============================
-# Página principal
-# ============================
-@app.get("/")
-def mostrar_landing():
-    return FileResponse("public/pages/landing.html")
-
-
 # ============================
 # LOGIN con control de sesiones
 # ============================
