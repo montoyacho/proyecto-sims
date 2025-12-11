@@ -1,4 +1,56 @@
+# ==============================
+#  ENVIRONMENT VARIABLES
+# ==============================
 .env
+.env.local
+.env.*.local
+
+# ==============================
+#  PYTHON
+# ==============================
 __pycache__/
+*.py[cod]
+*.pyo
+*.pyd
 *.pyc
+*.pdb
+*.pkl
+
+# Virtual env
+venv/
+.env/
+
+# ==============================
+#  FASTAPI / UVICORN
+# ==============================
+*.log
+
+# ==============================
+#  NODE (si en algún momento usas gulp del template)
+# ==============================
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# ==============================
+#  FRONTEND / TEMPLATE
+# ==============================
 public/template/falcon-v3.25.0/
+
+# Build / dist (si en algún momento compilas SCSS/JS)
+dist/
+build/
+
+# ==============================
+#  MAC / WINDOWS / EDITORES
+# ==============================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# ==============================
+#  OTHER
+# ==============================
+*.lock
+*.tmp
