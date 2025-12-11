@@ -6,46 +6,120 @@
 
     <!--# include virtual="/public/html/navs.shtml" -->
 
-          <form class="card">
-            <div class="card-header bg-body-tertiary">
-              <h5 class="mb-0">New message</h5>
-            </div>
-            <div class="card-body p-0">
-              <div class="border border-top-0 border-200">
-                <input class="form-control border-0 rounded-0 outline-none px-x1" id="email-to" type="email" aria-describedby="email-to" placeholder="To" />
-              </div>
-              <div class="border border-y-0 border-200">
-                <input class="form-control border-0 rounded-0 outline-none px-x1" id="email-subject" type="text" aria-describedby="email-subject" placeholder="Subject" />
-              </div>
-              <div class="min-vh-50 email-compose-textarea">
-                <textarea class="tinymce d-none" data-tinymce="data-tinymce" name="content"></textarea>
-              </div>
-              <div class="bg-body-tertiary px-x1 py-3">
-                <div class="d-inline-flex flex-column">
-                  <div class="border px-2 rounded-3 d-flex flex-between-center bg-white dark__bg-1000 my-1 fs-10"><span class="fs-8 far fa-image"></span><span class="ms-2">winter.jpg (873kb)</span><a class="text-300 p-1 ms-6" href="#!" data-bs-toggle="tooltip" data-bs-placement="right" title="Detach"><span class="fas fa-times"></span></a></div>
-                  <div class="border px-2 rounded-3 d-flex flex-between-center bg-white dark__bg-1000 my-1 fs-10"><span class="fs-8 far fa-file-archive"></span><span class="ms-2">coffee.zip (342kb)</span><a class="text-300 p-1 ms-6" href="#!" data-bs-toggle="tooltip" data-bs-placement="right" title="Detach"><span class="fas fa-times"></span></a></div>
+          <!-- ===============================================--> 
+          <form id="form-ticket" class="card p-4 shadow-sm">
+
+            <!-- FILA 1: SISTEMA / FECHA / ESTADO -->
+            <div class="row g-3">
+
+              <!-- SISTEMAS -->
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">SISTEMAS <span class="text-danger">*</span></label>
+                <div class="input-group">
+                  <input type="text" id="sistema" class="form-control" placeholder="Seleccionar sistema..." required />
+                  <button class="btn btn-outline-secondary" type="button" id="add-sistema">
+                    <span class="fas fa-plus"></span>
+                  </button>
                 </div>
               </div>
-            </div>
-            <div class="card-footer border-top border-200 d-flex flex-between-center">
-              <div class="d-flex align-items-center">
-                <button class="btn btn-primary btn-sm px-5 me-2" type="submit">Send</button>
-                <input class="d-none" id="email-attachment" type="file" />
-                <label class="me-2 btn btn-tertiary btn-sm mb-0 cursor-pointer" for="email-attachment" data-bs-toggle="tooltip" data-bs-placement="top" title="Attach files"><span class="fas fa-paperclip fs-8" data-fa-transform="down-2"></span></label>
-                <input class="d-none" id="email-image" type="file" accept="image/*" />
-                <label class="btn btn-tertiary btn-sm mb-0 cursor-pointer" for="email-image" data-bs-toggle="tooltip" data-bs-placement="top" title="Attach images"><span class="fas fa-image fs-8" data-fa-transform="down-2"></span></label>
-              </div>
-              <div class="d-flex align-items-center">
-                <div class="dropdown font-sans-serif me-2 btn-reveal-trigger">
-                  <button class="btn btn-link text-600 btn-sm dropdown-toggle btn-reveal dropdown-caret-none" id="email-options" type="button" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-v" data-fa-transform="down-2"></span></button>
-                  <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="email-options"><a class="dropdown-item" href="#!">Print</a><a class="dropdown-item" href="#!">Check spelling</a><a class="dropdown-item" href="#!">Plain text mode</a>
-                    <div class="dropdown-divider"></div><a class="dropdown-item" href="#!">Archive</a>
+
+              <!-- FECHA INCIDENCIA -->
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">FECHA INCIDENCIA <span class="text-danger">*</span></label>
+                <div class="row g-2">
+                  <div class="col">
+                    <input type="date" class="form-control" id="fecha-incidencia" required />
+                  </div>
+                  <div class="col">
+                    <input type="time" class="form-control" id="hora-incidencia" required />
                   </div>
                 </div>
-                <button class="btn btn-tertiary btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><span class="fas fa-trash"></span></button>
+              </div>
+
+            </div>
+
+            <hr class="my-4">
+
+            <!-- FILA 2: CATEGORIA / ELEMENTO / TIPO DE NOVEDAD -->
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label class="form-label fw-semibold">CATEGORÍA <span class="text-danger">*</span></label>
+                <select id="categoria" class="form-select" required>
+                  <option value="">Seleccionar...</option>
+                  <option>AUTOMÁTICO</option>
+                  <option>CORRECTIVO</option>
+                  <option>PREVENTIVO</option>
+                  <option>FALLA MASIVA</option>
+                </select>
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label fw-semibold">ELEMENTO <span class="text-danger">*</span></label>
+                <select id="elemento" class="form-select" required>
+                  <option value="">Seleccionar...</option>
+                  <option>ENLACE</option>
+                  <option>BORDE</option>
+                  <option>MODBUS</option>
+                  <option>CÁMARA</option>
+                  <option>ENERGÍA</option>
+                </select>
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label fw-semibold">TIPO NOVEDAD <span class="text-danger">*</span></label>
+                <select id="tipo-novedad" class="form-select" required>
+                  <option value="">Seleccionar...</option>
+                  <option>COMUNICACIONES</option>
+                  <option>HARDWARE</option>
+                  <option>SOFTWARE</option>
+                  <option>ENERGÍA</option>
+                  <option>SENSOR / MODBUS</option>
+                </select>
               </div>
             </div>
+
+            <hr class="my-4">
+
+            <!-- DESCRIPCIÓN -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold">DESCRIPCIÓN <span class="text-danger">*</span></label>
+              <textarea id="descripcion" class="form-control" rows="4" placeholder="Describe la falla con detalles..." required></textarea>
+            </div>
+
+            <!-- EVIDENCIA (UPLOAD + DRAG & DROP) -->
+            <div class="mb-4">
+              <label class="form-label fw-semibold">EVIDENCIA</label>
+
+              <div id="dropzone" class="border rounded-3 p-4 text-center bg-light"
+                  style="cursor: pointer; border-style: dashed;">
+                <span class="fas fa-cloud-upload-alt fa-2x text-secondary"></span>
+                <p class="mt-2 mb-0 text-secondary">Suelta los archivos aquí o <a href="#" id="browse-files">buscar</a></p>
+                <input type="file" id="evidencias" class="d-none" multiple />
+              </div>
+
+              <ul id="file-list" class="mt-3 list-unstyled"></ul>
+            </div>
+
+            <!-- OPERADOR -->
+            <div class="mb-4">
+              <label class="form-label fw-semibold">OPERADOR <span class="text-danger">*</span></label>
+
+              <button id="add-operador" type="button" class="btn btn-outline-secondary btn-sm">
+                <span class="fas fa-user-plus"></span> Añadir usuario
+              </button>
+
+              <div id="operadores-container" class="mt-2"></div>
+            </div>
+
+            <hr class="mt-4">
+
+            <!-- BOTÓN ENVIAR (pegado abajo a la derecha) -->
+            <div class="d-flex justify-content-end">
+              <button class="btn btn-primary px-4" type="submit">ENVIAR TICKET</button>
+            </div>
+
           </form>
+
 
           <!--# include virtual="/public/html/footer.shtml" -->
 
