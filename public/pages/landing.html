@@ -1,0 +1,568 @@
+<!--# set var="page_title" value="Grupo SIMS - Soluciones inteligentes" -->
+<!--# include virtual="/public/html/head.shtml" -->
+  <body>
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <nav class="navbar navbar-standard navbar-expand-lg fixed-top navbar-dark" data-navbar-darken-on-scroll="data-navbar-darken-on-scroll">
+        <div class="container">
+          <a class="navbar-brand" href="#inicio">
+            <span class="text-white dark__text-white">Grupo SIMS</span>
+          </a>
+          <button class="navbar-toggler collapsed" type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#navbarSimple"
+                  aria-controls="navbarSimple" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSimple">
+            
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#banner">INICIO</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#servicios">SERVICIOS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#nosotros">NOSOTROS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#proyectos">PROYECTOS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contacto">CONTACTO</a>
+              </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto">
+
+              <li class="nav-item d-flex align-items-center me-2">
+                <div class="dropdown theme-control-dropdown landing-drop">
+                  <a class="nav-link d-flex align-items-center fa-icon-wait pe-1" 
+                    href="#" role="button" id="themeSwitchDropdown" 
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    
+                    <span class="d-none d-lg-block">
+                      <span class="fas fa-sun" data-theme-dropdown-toggle-icon="light"></span>
+                      <span class="fas fa-moon" data-theme-dropdown-toggle-icon="dark"></span>
+                      <span class="fas fa-adjust" data-theme-dropdown-toggle-icon="auto"></span>
+                    </span>
+
+                    <span class="d-lg-none">TEMA</span>
+                  </a>
+
+                  <div class="dropdown-menu dropdown-menu-end dropdown-caret border py-0 mt-1" aria-labelledby="themeSwitchDropdown">
+                    <div class="bg-white dark__bg-1000 rounded-2 py-2">
+                      <button class="dropdown-item link-600 d-flex align-items-center gap-2" 
+                              type="button" value="light" data-theme-control="theme">
+                        <span class="fas fa-sun"></span>CLARO
+                        <span class="fas fa-check dropdown-check-icon ms-auto text-600"></span>
+                      </button>
+
+                      <button class="dropdown-item link-600 d-flex align-items-center gap-2" 
+                              type="button" value="dark" data-theme-control="theme">
+                        <span class="fas fa-moon"></span>OSCURO
+                        <span class="fas fa-check dropdown-check-icon ms-auto text-600"></span>
+                      </button>
+
+                      <button class="dropdown-item link-600 d-flex align-items-center gap-2" 
+                              type="button" value="auto" data-theme-control="theme">
+                        <span class="fas fa-adjust"></span>AUTO
+                        <span class="fas fa-check dropdown-check-icon ms-auto text-600"></span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center" 
+                  href="http://172.28.90.212:3000/login" target="_blank">
+                  <img src="https://ng.ant.design/assets/img/logo.svg" 
+                      alt="Login" 
+                      style="height: 20px; margin-right: 6px;"> ASEGUIR
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link d-flex align-items-center" href="/public/pages/auth/login.html" target="_blank">
+                  INICIAR SESIÓN
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="py-0 min-vh-100 overflow-hidden d-flex flex-column justify-content-between" id="banner">
+
+        <div class="bg-holder overlay d-dark-none"
+            style="background-image:url('/public/template/falcon-v3.25.0/public/assets/img/generic/fondoclaro.png');
+                  background-position:center bottom; z-index:-1;">
+        </div>
+
+        <div class="bg-holder overlay d-light-none"
+            style="background-image:url('/public/template/falcon-v3.25.0/public/assets/img/generic/fondooscuro.png');
+                  background-position:center bottom; z-index:-1;">
+        </div>
+
+        <div class="container flex-grow-1 d-flex align-items-center">
+          <div class="row w-100 pt-6 pb-3 align-items-start">
+
+            <!-- TEXTO -->
+            <div class="col-md-11 col-lg-8 col-xl-4 text-center text-xl-start">
+              <h1 class="text-white fw-light">
+                SIMS
+                <span class="typed-text fw-bold" 
+                      data-typed-text='["TECH","LTDA","EAGLE","RENTING","VALORES"]'>
+                </span><br />
+                Gestión inteligente para tus negocios
+              </h1>
+              <p class="lead text-white opacity-75">
+                Innovación, precisión y compromiso en cada operación.
+              </p>
+            </div>
+            <!-- VIDEO -->
+            <!div class="col-12 col-xl-7 offset-xl-1 d-none d-xl-flex align-items-end mt-4 mt-xl-0 order-2 order-xl-1">
+              <!a class="img-landing-banner rounded w-100">
+                <!video class="img-fluid rounded w-100"
+                      autoplay muted loop playsinline>
+                  <!source src="/public/template/falcon-v3.25.0/public/assets/video/camara.mp4" type="video/mp4">
+                </!video>
+              </!a>
+            </!div>
+          </div>
+        </div>
+        <div class="py-3 pb-0 bg-body-tertiary shadow-sm">
+          <div class="container">
+            <div class="row flex-center align-items-center">
+
+              <div class="col-3 col-sm-auto my-1 my-sm-3 px-x1">
+                <img class="landing-cta-img" height="120"
+                    src="/public/template/falcon-v3.25.0/public/assets/img/logos/b&w/LOGOTECH.png">
+              </div>
+
+              <div class="col-3 col-sm-auto my-1 my-sm-3 px-x1">
+                <img class="landing-cta-img" height="120"
+                    src="/public/template/falcon-v3.25.0/public/assets/img/logos/b&w/LOGORENTING.png">
+              </div>
+
+              <div class="col-3 col-sm-auto my-1 my-sm-3 px-x1">
+                <img class="landing-cta-img" height="120"
+                    src="/public/template/falcon-v3.25.0/public/assets/img/logos/b&w/LOGOVALORES.png">
+              </div>
+
+              <div class="col-3 col-sm-auto my-1 my-sm-3 px-x1">
+                <img class="landing-cta-img" height="120"
+                    src="/public/template/falcon-v3.25.0/public/assets/img/logos/b&w/LOGOEAGLE.png">
+              </div>
+
+              <div class="col-3 col-sm-auto my-1 my-sm-3 px-x1">
+                <img class="landing-cta-img" height="120"
+                    src="/public/template/falcon-v3.25.0/public/assets/img/logos/b&w/LOGOLTDA.png">
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="py-5">
+        <div class="container">
+
+          <!-- TÍTULO GENERAL -->
+          <div class="row justify-content-center text-center mb-6">
+            <div class="col-lg-8 col-xl-7 col-xxl-6">
+              <h1 class="fs-7 fs-sm-5 fs-md-4" id="servicios">Nuestros servicios</h1>
+              <p class="lead">Soluciones integrales en tecnología, seguridad, renting y transporte a nivel nacional.</p>
+            </div>
+          </div>
+
+          <!-- SIMS TECH -->
+          <div class="row flex-center mt-6">
+            <div class="col-md col-lg-5 col-xl-4 ps-lg-6 d-flex justify-content-center align-items-center">
+              <img class="img-fluid px-6 px-md-0" src="/public/template/falcon-v3.25.0/public/assets/img/logos/b&w/LOGOTECH.png" alt="SIMS TECH" >
+            </div>
+            <div class="col-md col-lg-5 col-xl-4 mt-4 mt-md-0">
+              <h5 class="text-danger">
+                <span class="far fa-lightbulb me-2"></span>SIMS TECH
+              </h5>
+              <h3 class="text-justify">Sistemas inteligentes</h3>
+              <p class="text-justify">Integramos soluciones inteligentes de transporte con centros de control (C4, ITS, RTO), telecomunicaciones y monitoreo en tiempo real. Operamos centros de contacto con inteligencia artificial y desarrollamos proyectos para peajes con videovigilancia, gestión de tráfico y reconocimiento de placas, respaldados por soporte 24/7.
+              </p>
+            </div>
+          </div>
+
+          <!-- SIMS RENTING -->
+          <div class="row flex-center mt-7">
+            <div class="col-md col-lg-5 col-xl-4 pe-lg-6 order-md-2">
+              <img class="img-fluid px-6 px-md-0" src="/public/template/falcon-v3.25.0/public/assets/img/logos/b&w/LOGORENTING.png" alt="SIMS RENTING">
+            </div>
+            <div class="col-md col-lg-5 col-xl-4 mt-4 mt-md-0">
+              <h5 class="text-info">
+                <span class="fas fa-car me-2"></span>SIMS RENTING
+              </h5>
+              <h3 class="text-justify">Alquiler de vehículos blindados</h3>
+              <p class="text-justify">Alquilamos vehículos blindados equipados con tecnología de seguridad avanzada, incluyendo rastreo satelital, botón de pánico, GPS con mapas de Colombia y cámaras de respaldo. Contamos con cobertura nacional y flota operativa y de relevo para responder a las necesidades de cada cliente con precisión
+              </p>
+            </div>
+          </div>
+
+          <!-- SIMS EAGLE -->
+          <div class="row flex-center mt-7">
+            <div class="col-md col-lg-5 col-xl-4 ps-lg-6">
+              <img class="img-fluid px-6 px-md-0" src="/public/template/falcon-v3.25.0/public/assets/img/logos/b&w/LOGOEAGLE.png" alt="SIMS EAGLE">
+            </div>
+            <div class="col-md col-lg-5 col-xl-4 mt-4 mt-md-0">
+              <h5 class="text-success">
+                <span class="fas fa-route me-2"></span>SIMS EAGLE
+              </h5>
+              <h3 class="text-justify">Transporte & BPO logístico</h3>
+              <p class="text-justify">Ofrecemos servicios de alquiler y arrendamiento de vehículos para personas naturales y jurídicas, con o sin conductor, operando a nivel nacional, regional y urbano. Brindamos soluciones integrales de transporte de personal y mercancías, administración de flotas y coordinación de rutas. Gracias a nuestra experiencia en sistemas BPO, apoyamos a nuestros clientes en la optimización de procesos logísticos y operativos, contribuyendo al cumplimiento eficiente de sus objetivos.
+              </p>
+            </div>
+          </div>
+
+          <!-- VALORES SIMS -->
+          <div class="row flex-center mt-7">
+            <div class="col-md col-lg-5 col-xl-4 pe-lg-6 order-md-2">
+              <img class="img-fluid px-6 px-md-0" src="/public/template/falcon-v3.25.0/public/assets/img/logos/b&w/LOGOVALORES.png" alt="VALORES SIMS">
+            </div>
+            <div class="col-md col-lg-5 col-xl-4 mt-4 mt-md-0">
+              <h5 class="text-warning">
+                <span class="fas fa-shield-alt me-2"></span>VALORES SIMS
+              </h5>
+              <h3 class="text-justify">Custodia & seguridad de activos</h3>
+              <p class="text-justify">Nos especializamos en seguridad privada, ofreciendo servicios de custodia y protección con respaldo institucional y legal, operando a nivel nacional como un aliado confiable para resguardar personas, bienes y operaciones estratégicas. Nuestra línea innovadora de transporte y custodia de valores tecnológicos brinda soluciones de contingencia frente a riesgos de ciberataques y robo de información, combinando seguridad física y digital para proteger los activos más valiosos de su organización.
+              </p>
+            </div>
+          </div>
+
+          <!-- SIMS LTDA -->
+          <div class="row flex-center mt-7">
+            <div class="col-md col-lg-5 col-xl-4 ps-lg-6">
+              <img class="img-fluid px-6 px-md-0 w-75" src="/public/template/falcon-v3.25.0/public/assets/img/logos/b&w/LOGOLTDA.png" alt="SIMS LTDA">
+            </div>
+            <div class="col-md col-lg-5 col-xl-4 mt-4 mt-md-0">
+              <h5 class="text-primary">
+                <span class="fas fa-user-shield me-2"></span>SIMS LTDA
+              </h5>
+              <h3 class="text-justify">Seguridad privada & CCTV</h3>
+              <p class="text-justify">Ofrecemos servicios integrales de vigilancia fija y móvil, escoltas, seguridad satelital y CCTV. Con experiencia en análisis y coordinación, atendemos al sector público y privado con soluciones respaldadas por tecnología de última generación, además de consultoría en gestión de riesgos. 
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="bg-body-tertiary dark__bg-opacity-50 text-center">
+
+        <div class="container" id="nosotros">
+          <div class="row">
+            <div class="col">
+              <h1 class="fs-7 fs-sm-5 fs-md-4">¿Quiénes somos?</h1>
+              <p class="lead text-justify">Grupo SIMS es una empresa colombiana con más de 30 años de experiencia en soluciones tecnológicas para operaciones de misión crítica. Integramos innovación, monitoreo satelital, telecomunicaciones y sistemas inteligentes para garantizar continuidad, eficiencia y soporte 24/7. Ofrecemos desde centros de control y videovigilancia hasta soluciones logísticas en tiempo real, consolidándonos como un aliado estratégico para clientes corporativos y gubernamentales.</p>
+            </div>
+          </div>
+          <div class="row mt-6 text-center">
+
+            <!-- Años de experiencia -->
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="card card-span h-100">
+                <div class="card-span-img">
+                  <span class="fas fa-briefcase fs-3 text-warning"></span>
+                </div>
+                <div class="card-body pt-6 pb-4">
+                  <h2 class="text-dark counter" data-end="30" data-suffix="+">0</h2>
+                  <p class="mt-2">Años de experiencia</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Proyectos completados -->
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="card card-span h-100">
+                <div class="card-span-img">
+                  <span class="fas fa-check-circle fs-3 text-success"></span>
+                </div>
+                <div class="card-body pt-6 pb-4">
+                  <h2 class="text-dark counter" data-end="80" data-suffix="+">0</h2>
+                  <p class="mt-2">Proyectos completados</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Personal calificado -->
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="card card-span h-100">
+                <div class="card-span-img">
+                  <span class="fas fa-users fs-3 text-info"></span>
+                </div>
+                <div class="card-body pt-6 pb-4">
+                  <h2 class="text-dark counter" data-end="150" data-suffix="+">0</h2>
+                  <p class="mt-2">Personal calificado</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Asociaciones con clientes -->
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="card card-span h-100">
+                <div class="card-span-img">
+                  <span class="fas fa-handshake fs-3 text-primary"></span>
+                </div>
+                <div class="card-body pt-6 pb-4">
+                  <h2 class="text-dark counter" data-end="50" data-suffix="+">0</h2>
+                  <p class="mt-2">Asociaciones con clientes</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="bg-200 text-center">
+        <div class="container" id="proyectos">
+          <div class="row justify-content-center">
+            <div class="col-lg-9 col-xl-8">
+
+              <h3 class="mb-5 text-dark fw-bold">Nuestros proyectos</h3>
+
+              <div class="swiper theme-slider"
+                data-swiper='{"autoplay":true,"spaceBetween":10,"loop":true,"slideToClickedSlide":true}'>
+                <div class="swiper-wrapper">
+
+                  <!-- Control de Peajes -->
+                  <div class="swiper-slide">
+                    <div class="px-5 px-sm-6">
+                      <span class="fas fa-road fs-1 text-primary"></span>
+                      <h4 class="mt-3 fw-bold">Control de peajes</h4>
+                      <p class="fs-md-7 text-1100">
+                        Implementación de sistemas de monitoreo, control vehicular y automatización de estaciones de peaje a nivel nacional.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Administración de Túneles -->
+                  <div class="swiper-slide">
+                    <div class="px-5 px-sm-6">
+                      <span class="fas fa-mountain fs-1 text-success"></span>
+                      <h4 class="mt-3 fw-bold">Administración de túneles</h4>
+                      <p class="fs-md-7 text-1100">
+                        Supervisión, control y soporte operativo de sistemas críticos en túneles vehiculares.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Videovigilancia en Presidencia -->
+                  <div class="swiper-slide">
+                    <div class="px-5 px-sm-6">
+                      <span class="fas fa-video fs-1 text-danger"></span>
+                      <h4 class="mt-3 fw-bold">Videovigilancia en presidencia</h4>
+                      <p class="fs-md-7 text-1100">
+                        Diseño e integración de sistemas avanzados de videovigilancia, controles de acceso, controles vehiculares para instalaciones del gobierno nacional.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Control de Incendios con Bomberos -->
+                  <div class="swiper-slide">
+                    <div class="px-5 px-sm-6">
+                      <span class="fas fa-fire-extinguisher fs-1 text-warning"></span>
+                      <h4 class="mt-3 fw-bold">Control de incendios</h4>
+                      <p class="fs-md-7 text-1100">
+                        Integración de sistemas de detección, alarma y respuesta coordinada con cuerpos de bomberos municipales.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Sistemas ITS INVIAS -->
+                  <div class="swiper-slide">
+                    <div class="px-5 px-sm-6">
+                      <span class="fas fa-network-wired fs-1 text-info"></span>
+                      <h4 class="mt-3 fw-bold">Sistemas ITS - INVIAS</h4>
+                      <p class="fs-md-7 text-1100">
+                        Operación, mantenimiento e integración de sistemas inteligentes de transporte para la red vial nacional.
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Controls -->
+                <div class="swiper-nav">
+                  <div class="swiper-button-next swiper-button-white"></div>
+                  <div class="swiper-button-prev swiper-button-white"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="bg-dark" data-bs-theme="light">
+
+        <div class="bg-holder overlay" style="background-image:url(/public/template/falcon-v3.25.0/public/assets/img/generic/bg-2.jpg);background-position: center top;" id="">
+        </div>
+        <!--/.bg-holder-->
+        <div class="container">
+          <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1 class="fs-7 fs-sm-5 fs-md-4 text-white">Nuestra historia</h1>
+              <p class="lead text-justify text-white">Desde 1995 hemos evolucionado de enfrentar la piratería terrestre en Colombia a convertirnos en un referente en soluciones tecnológicas y de seguridad. Con el tiempo, trajimos al país los primeros sistemas de rastreo satelital, impulsamos proyectos de seguridad vial e incorporamos tecnologías ITS como cámaras, centros de control, analíticas y telecomunicaciones avanzadas. A lo largo de los años hemos prestado servicios a sectores estratégicos como defensa, energía, transporte, minería y gobierno, siempre cumpliendo con nuestros clientes y aliados. Hoy en día, contamos con experiencia en videovigilancia, operación de peajes y túneles, centros de comando y control, contact centers con inteligencia artificial, soluciones de rastreo y monitoreo, así como seguridad física y tecnológica a nivel nacional. Con más de tres décadas de innovación y compromiso, seguimos integrando tecnologías emergentes para ofrecer servicios de seguridad confiables, ahora también con soluciones de transporte y custodia de valores tecnológicos.</p>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="bg-dark pt-8 pb-4" data-bs-theme="light">
+
+        <div class="container" id="contacto">
+          <div class="position-absolute btn-back-to-top bg-dark"><a class="text-600" href="#banner" data-bs-offset-top="0"><span class="fas fa-chevron-up" data-fa-transform="rotate-45"></span></a></div>
+          <div class="row">
+            <div class="col-lg-4">
+              <h5 class="text-uppercase text-white opacity-85 mb-3">Nuestra misión</h5>
+              <p class="text-600 text-justify">Compañías líderes en suministro de soluciones integrales en seguridad, Transporte, telecomunicaciones y soluciones logísticas (BPO) (tercerización de procesos de negocios) lo que nos permite incrementar nuestra presencia en la economía  nacional, de la mano de nuestros socios extranjeros y ser aliados de nuestros clientes generando relaciones comerciales rentables protegiendo los bienes y servicios del contrabando, favoreciendo su reputación y el valor de la marca del producto. Por medio de innovación tecnológica calidad de procesos y excelencia en el servicio.</p>
+              <div class="icon-group mt-4"><a class="icon-item bg-white text-facebook" href="#!"><span class="fab fa-facebook-f"></span></a><a class="icon-item bg-white text-twitter" href="#!"><span class="fab fa-twitter"></span></a><a class="icon-item bg-white text-google-plus" href="#!"><span class="fab fa-google-plus-g"></span></a><a class="icon-item bg-white text-linkedin" href="#!"><span class="fab fa-linkedin-in"></span></a><a class="icon-item bg-white" href="#!"><span class="fab fa-medium-m"></span></a></div>
+            </div>
+            <div class="col ps-lg-6 ps-xl-8">
+              <div class="row mt-5 mt-lg-0">
+
+                <div class="col-12 col-md-6 mt-5 mt-md-0">
+                  <h5 class="text-uppercase text-white opacity-85 mb-3">Nuestra Ubicación</h5>
+
+                  <div class="ratio ratio-4x3 rounded shadow">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.742938986051!2d-74.033770!3d4.694948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a3d2290b08b%3A0x2df65d9d6f5bf86!2sCalle%20108%20%23%208B-15%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1700000000000"
+                      width="100%"
+                      height="100%"
+                      style="border:0;"
+                      allowfullscreen=""
+                      loading="lazy">
+                    </iframe>
+                  </div>
+                </div>
+
+
+                <div class="col mt-5 mt-md-0">
+                  <h5 class="text-uppercase text-white opacity-85 mb-3">Contacto</h5>
+                  <ul class="list-unstyled">
+
+                    <!-- Correo -->
+                    <li>
+                      <h5 class="fs-9 mb-0">
+                        <a class="link-600" href="mailto:contactos@gruposims.com">
+                          contactos@gruposims.com
+                        </a>
+                      </h5>
+                      <p class="text-600 opacity-50">Correo electrónico</p>
+                    </li>
+
+                    <!-- Teléfono -->
+                    <li>
+                      <h5 class="fs-9 mb-0">
+                        <a class="link-600" href="tel:+573023205918">
+                          +57 3023205918
+                        </a>
+                      </h5>
+                      <p class="text-600 opacity-50">Teléfono</p>
+                    </li>
+
+                    <!-- Dirección (link a Google Maps) -->
+                    <li>
+                      <h5 class="fs-9 mb-0">
+                        <a class="link-600"
+                          href="https://www.google.com/maps/search/?api=1&query=Calle+108+%23+8B+-+15+Bogota"
+                          target="_blank">
+                          Calle 108 # 8B - 15
+                        </a>
+                      </h5>
+                      <p class="text-600 opacity-50">Dirección</p>
+                    </li>
+
+                    <!-- Ciudad (abre Maps en la zona) -->
+                    <li>
+                      <h5 class="fs-9 mb-0">
+                        <a class="link-600"
+                          href="https://www.google.com/maps/search/?api=1&query=Calle+108+%23+8B+-+15+Bogota"
+                          target="_blank">
+                          Usaquén - Bogotá D.C
+                        </a>
+                      </h5>
+                      <p class="text-600 opacity-50">Ciudad</p>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="py-0 bg-dark" data-bs-theme="light">
+        <div>
+          <hr class="my-0 text-600 opacity-25" />
+          <div class="container py-3">
+            <div class="row justify-content-between fs-10">
+              <div class="col-12 col-sm-auto text-center">
+                <p class="mb-0 text-600 opacity-85">Grupo SIMS. Todos los derechos reservados <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 1994 &copy;</p>
+              </div>
+              <div class="col-12 col-sm-auto text-center">
+                <p class="mb-0 text-600 opacity-85">v1.0.0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+    </main>
+    <script src="/public/template/falcon-v3.25.0/public/vendors/popper/popper.min.js"></script>
+    <script src="/public/template/falcon-v3.25.0/public/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="/public/template/falcon-v3.25.0/public/vendors/anchorjs/anchor.min.js"></script>
+    <script src="/public/template/falcon-v3.25.0/public/vendors/is/is.min.js"></script>
+    <script src="/public/template/falcon-v3.25.0/public/vendors/swiper/swiper-bundle.min.js"> </script>
+    <script src="/public/template/falcon-v3.25.0/public/vendors/typed.js/typed.umd.js"></script>
+    <script src="/public/template/falcon-v3.25.0/public/vendors/fontawesome/all.min.js"></script>
+    <script src="/public/template/falcon-v3.25.0/public/vendors/lodash/lodash.min.js"></script>
+    <script src="/public/template/falcon-v3.25.0/public/vendors/list.js/list.min.js"></script>
+    <script src="/public/template/falcon-v3.25.0/public/assets/js/theme.js"></script>
+    <script src="/public/js/landing.js"></script>
+  </body>
+</html>

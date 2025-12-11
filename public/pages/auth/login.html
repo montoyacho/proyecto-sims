@@ -1,0 +1,51 @@
+<!--# set var="page_title" value="Grupo SIMS - Iniciar sesión" -->
+<!--# include virtual="/public/html/head.shtml" -->
+  <body>
+
+    <script src="/public/js/login.js"></script>
+
+        <div class="row min-vh-100 bg-100">
+          <div class="col-6 d-none d-lg-block position-relative">
+            <div class="bg-holder" style="background-image:url(/public/template/falcon-v3.25.0/public/assets/img/generic/fondologin.jpg);background-position: 50% 20%;">
+            </div>
+            <!--/.bg-holder-->
+          </div>
+          <div class="col-sm-10 col-md-6 px-sm-0 align-self-center mx-auto py-5">
+            <div class="row justify-content-center g-0">
+              <div class="col-lg-9 col-xl-8 col-xxl-6">
+                <div class="card">
+                  <div class="card-header bg-circle-shape bg-shape text-center p-2"><a class="font-sans-serif fw-bolder fs-5 z-1 position-relative link-light" href="/public/pages/landing.html" data-bs-theme="light">Grupo SIMS</a></div>
+                  <div class="card-body p-4">
+                    <div class="row flex-between-center">
+                      <div class="col-auto">
+                        <h3>Iniciar sesión</h3>
+                      </div>
+                    </div>
+                    <form id="login-form">
+                      <div class="mb-3">
+                        <label class="form-label" for="split-login-email">Correo electrónico</label>
+                        <input class="form-control" id="split-login-email" type="email" required/>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label" for="split-login-password">Contraseña</label>
+                        <input class="form-control" id="split-login-password" type="password" required/>
+                      </div>
+                      <div class="mb-3">
+                        <button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">ACCEDER</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!--# include virtual="/public/html/personaliza.shtml" -->
+
+    <!--# include virtual="/public/html/javascripts.shtml" -->
+
+  </body>
+</html>

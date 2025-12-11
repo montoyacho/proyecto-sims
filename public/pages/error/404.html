@@ -1,0 +1,35 @@
+<!--# set var="page_title" value="Grupo SIMS - ERROR 404" -->
+<!--# include virtual="/public/html/head.shtml" -->
+  <body>
+    <main class="main" id="top">
+      <div class="container" data-layout="container">
+        <script>
+          var isFluid = JSON.parse(localStorage.getItem('isFluid'));
+          if (isFluid) {
+            var container = document.querySelector('[data-layout]');
+            container.classList.remove('container');
+            container.classList.add('container-fluid');
+          }
+        </script>
+        <div class="row flex-center min-vh-100 py-6 text-center">
+          <div class="col-sm-10 col-md-8 col-lg-6 col-xxl-5"><a class="d-flex flex-center mb-4" href="/public/pages/auth/login.html"><img class="me-2" src="/public/template/falcon-v3.25.0/public/assets/img/favicons/faviconsims.ico" alt="" width="58" /><span class="font-sans-serif text-primary fw-bolder fs-4 d-inline-block">Grupo SIMS</span></a>
+            <div class="card">
+              <div class="card-body p-4 p-sm-5">
+                <div class="fw-black lh-1 text-300 fs-error">404</div>
+                <p class="lead mt-4 text-800 font-sans-serif fw-semi-bold w-md-75 w-xl-100 mx-auto">La página que estás buscando no se encuentra.</p>
+                <hr />
+                <p>Asegúrate de que la dirección sea correcta y de que la página no se haya movido. Si crees que es un error, <a href="mailto:ing.soporte1@gruposims.com">contacta con nosotros</a>.</p><a class="btn btn-primary btn-sm mt-3" href="/public/pages/auth/login.html"><span class="fas fa-home me-2"></span>Volver al inicio</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!--# include virtual="/public/html/personaliza.shtml" -->
+
+    <!--# include virtual="/public/html/javascripts.shtml" -->
+
+  </body>
+
+</html>
