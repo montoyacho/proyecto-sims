@@ -8,3 +8,4 @@
 <script src="/public/template/falcon-v3.25.0/public/vendors/list.js/list.min.js"></script>
 <script src="/public/template/falcon-v3.25.0/public/assets/js/theme.js"></script>
 <script src="/public/js/logout.js"></script>
+<script src="/public/js/nav.js"></script>
