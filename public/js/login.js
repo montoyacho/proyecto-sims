@@ -12,8 +12,8 @@ async function validarSesionLogin() {
         });
 
         if (response.ok) {
-            // Token válido → continuar al dashboard
-            window.location.href = "/public/pages/supportdesk/support-desk.html";
+            // NO redirigir aquí
+            return;
         } else {
             // Token inválido → borrar
             localStorage.removeItem("jwt_token");
@@ -68,6 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
             // LOGIN EXITOSO
             // -----------------------------
             localStorage.setItem("jwt_token", data.token);
+            localStorage.setItem("primer_nombre", data.primer_nombre);
+            localStorage.setItem("primer_apellido", data.primer_apellido);
+            localStorage.setItem("rol", data.rol);
             window.location.href = "/public/pages/supportdesk/support-desk.html";
 
         } catch (error) {

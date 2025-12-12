@@ -100,17 +100,20 @@ def login(data: LoginData, request: Request):
 
     # Buscar usuario
     cur.execute("""
-        SELECT id, hash_contraseña 
-        FROM users 
-        WHERE correo = %s AND activo = TRUE
+        SELECT u.id, u.hash_contraseña, u.primer_nombre, u.primer_apellido,
+            r.nombre AS rol_nombre
+        FROM users u
+        LEFT JOIN roles r ON u.rol_id = r.id
+        WHERE u.correo = %s AND u.activo = TRUE
     """, (data.correo,))
     user = cur.fetchone()
+    print("DEBUG USER →", user)
 
     if not user:
         log_login(None, request, False)
         raise HTTPException(status_code=400, detail="Usuario o contraseña incorrectos")
 
-    user_id, hash_contraseña = user
+    user_id, hash_contraseña, primer_nombre, primer_apellido, rol_nombre = user
 
     # Validar contraseña
     if not pwd_context.verify(data.contraseña, hash_contraseña):
@@ -151,8 +154,12 @@ def login(data: LoginData, request: Request):
     cur.close()
     conn.close()
 
-    return {"token": token}
-
+    return {
+        "token": token,
+        "primer_nombre": primer_nombre,
+        "primer_apellido": primer_apellido,
+        "rol": rol_nombre
+    }
 
 # ============================
 # VALIDAR TOKEN contra BD
